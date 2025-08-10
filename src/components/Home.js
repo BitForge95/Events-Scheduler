@@ -11,7 +11,7 @@ export default function Home() {
   const username = storedUser?.username || "User";
 
   const fetchEvents = async () => {
-    const res = await fetch("http://localhost:3000/read", {
+    const res = await fetch("events-scheduler-backend-production.up.railway.app/read", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -29,7 +29,7 @@ export default function Home() {
   const createOrUpdateEvent = async (e) => {
     e.preventDefault();
     if (editingId) {
-      const res = await fetch(`http://localhost:3000/update/${editingId}`, {
+      const res = await fetch(`events-scheduler-backend-production.up.railway.app/update/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify(form),
@@ -41,7 +41,7 @@ export default function Home() {
         fetchEvents();
       }
     } else {
-      const res = await fetch("http://localhost:3000/create", {
+      const res = await fetch("events-scheduler-backend-production.up.railway.app/create", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify(form),
@@ -56,7 +56,7 @@ export default function Home() {
 
   const deleteEvent = async (id) => {
     if (!window.confirm("Delete this event?")) return;
-    const res = await fetch(`http://localhost:3000/delete/${id}`, {
+    const res = await fetch(`events-scheduler-backend-production.up.railway.app/delete/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });

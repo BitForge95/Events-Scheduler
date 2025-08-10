@@ -13,14 +13,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* 🚀 Default landing route */}
         <Route path="/" element={<Navigate to="/register" replace />} />
 
-        {/* 🔐 Public routes */}
+
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        {/* 🔐 Private (authenticated) route */}
         <Route
           path="/home"
           element={
@@ -31,7 +29,7 @@ function App() {
         />
       </Routes>
 
-      {/* ✅ Toast notification container */}
+
       <ToastContainer
         position="top-right"
         autoClose={3000}

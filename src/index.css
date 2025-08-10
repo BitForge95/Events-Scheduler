@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-/* Main container centers the content vertically and horizontally */
+
 .register-main-container {
   min-height: 100vh;
   display: flex;
@@ -26,7 +26,6 @@ code {
   padding: 0;
 }
 
-/* Card-style container for the form */
 .register-subcontainer {
   background-color: #1f2937;
   color: #ffffff;
@@ -38,7 +37,6 @@ code {
   animation: fadeIn 0.4s ease-in-out;
 }
 
-/* Heading */
 .register-account-heading {
   font-size: 1.8rem;
   font-weight: bold;
@@ -46,7 +44,6 @@ code {
   margin-bottom: 24px;
 }
 
-/* Input fields */
 .register-username-input,
 .register-email-input,
 .register-password-input {
@@ -69,7 +66,6 @@ code {
   outline: none;
 }
 
-/* Register button */
 .register-submit {
   width: 100%;
   padding: 12px;
@@ -87,7 +83,6 @@ code {
   background-color: #2563eb;
 }
 
-/* Already registered message */
 .login-redirect-container {
   text-align: center;
   margin-top: 20px;
@@ -98,7 +93,6 @@ code {
   color: #d1d5db;
 }
 
-/* Login button styles */
 .login-redirect-container button {
   padding: 10px 20px;
   background-color: #10b981;
@@ -114,13 +108,11 @@ code {
   background-color: #059669;
 }
 
-/* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive adjustments */
 @media (max-width: 480px) {
   .register-subcontainer {
     padding: 25px;
@@ -218,7 +210,6 @@ code {
 }
 
 
-/* Home component styling */
 
 .home-container {
   max-width: 700px;
@@ -362,7 +353,8 @@ code {
   margin-bottom: 20px;
   color: #555;
 }
-/* Full page background */
+
+
 .login-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -372,7 +364,6 @@ code {
   font-family: Arial, sans-serif;
 }
 
-/* Form card */
 .login-box {
   background-color: #1e293b;
   padding: 35px;
@@ -381,7 +372,7 @@ code {
   width: 350px;
 }
 
-/* Title */
+
 .login-title {
   text-align: center;
   color: #fff;
@@ -389,14 +380,14 @@ code {
   font-size: 1.8rem;
 }
 
-/* Form layout */
+
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Inputs */
+
 .login-form input {
   padding: 12px;
   border-radius: 8px;
@@ -414,7 +405,7 @@ code {
   outline: 2px solid #3b82f6;
 }
 
-/* Button */
+
 .login-btn {
   padding: 12px;
   background-color: #3b82f6;
@@ -431,7 +422,7 @@ code {
   background-color: #2563eb;
 }
 
-/* Register link text */
+
 .login-register-text {
   text-align: center;
   margin-top: 15px;

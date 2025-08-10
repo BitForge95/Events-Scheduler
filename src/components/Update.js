@@ -13,7 +13,7 @@ function Update({ eventId }) {
         const fetchEvent = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const res = await axios.get(`http://localhost:3000/event/${eventId}`, {
+                const res = await axios.get(`events-scheduler-backend-production.up.railway.app/event/${eventId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setTitle(res.data.title);
@@ -32,7 +32,7 @@ function Update({ eventId }) {
         try {
             const token = localStorage.getItem("token");
             await axios.put(
-                `http://localhost:3000/update/${eventId}`,
+                `events-scheduler-backend-production.up.railway.app/update/${eventId}`,
                 { title, description, startDate, endDate },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

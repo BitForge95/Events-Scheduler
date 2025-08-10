@@ -11,7 +11,7 @@ function Create () {
 
     const postNewEventDetails = async () => {
         try {
-            const res = await axios.post("http://localhost:3000/create",{
+            const res = await axios.post("events-scheduler-backend-production.up.railway.app/create",{
                 title,
                 description,
                 startDate,
