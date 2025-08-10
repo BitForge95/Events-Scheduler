@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("events-scheduler-backend-production.up.railway.app/login", {
+      const res = await fetch("https://events-scheduler-backend-production.up.railway.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

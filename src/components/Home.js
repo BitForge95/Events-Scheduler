@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { toast } from "react-toastify";
 
 export default function Home() {
@@ -10,17 +10,17 @@ export default function Home() {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const username = storedUser?.username || "User";
 
-  const fetchEvents = async () => {
-    const res = await fetch("events-scheduler-backend-production.up.railway.app/read", {
+  const fetchEvents = useCallback(async () => {
+    const res = await fetch("https://events-scheduler-backend-production.up.railway.app/read", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
     if (res.ok) setEvents(data.data);
-  };
+  }, [token]);
 
   useEffect(() => {
     fetchEvents();
-  }, []);
+  }, [fetchEvents]); 
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -29,7 +29,7 @@ export default function Home() {
   const createOrUpdateEvent = async (e) => {
     e.preventDefault();
     if (editingId) {
-      const res = await fetch(`events-scheduler-backend-production.up.railway.app/update/${editingId}`, {
+      const res = await fetch(`https://events-scheduler-backend-production.up.railway.app/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify(form),
@@ -41,7 +41,7 @@ export default function Home() {
         fetchEvents();
       }
     } else {
-      const res = await fetch("events-scheduler-backend-production.up.railway.app/create", {
+      const res = await fetch("https://events-scheduler-backend-production.up.railway.app/create", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify(form),
@@ -56,7 +56,7 @@ export default function Home() {
 
   const deleteEvent = async (id) => {
     if (!window.confirm("Delete this event?")) return;
-    const res = await fetch(`events-scheduler-backend-production.up.railway.app/delete/${id}`, {
+    const res = await fetch(`https://events-scheduler-backend-production.up.railway.app/delete/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
